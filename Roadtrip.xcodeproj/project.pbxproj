@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B73DEF7478B31A08A9292107 /* Pods_Roadtrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F414DB32DE5A2503AFFF3A42 /* Pods_Roadtrip.framework */; };
 		FDD0997D255225C000A16B89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD0997C255225C000A16B89 /* AppDelegate.swift */; };
 		FDD0997F255225C000A16B89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD0997E255225C000A16B89 /* SceneDelegate.swift */; };
 		FDD09981255225C000A16B89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD09980255225C000A16B89 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		582671400E069773557C2B8B /* Pods-Roadtrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roadtrip.release.xcconfig"; path = "Target Support Files/Pods-Roadtrip/Pods-Roadtrip.release.xcconfig"; sourceTree = "<group>"; };
+		B4357A17194B6E1F1CDC0951 /* Pods-Roadtrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roadtrip.debug.xcconfig"; path = "Target Support Files/Pods-Roadtrip/Pods-Roadtrip.debug.xcconfig"; sourceTree = "<group>"; };
+		F414DB32DE5A2503AFFF3A42 /* Pods_Roadtrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roadtrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD09979255225C000A16B89 /* Roadtrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roadtrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD0997C255225C000A16B89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDD0997E255225C000A16B89 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73DEF7478B31A08A9292107 /* Pods_Roadtrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADCF5E41B87847A8F0781DD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4357A17194B6E1F1CDC0951 /* Pods-Roadtrip.debug.xcconfig */,
+				582671400E069773557C2B8B /* Pods-Roadtrip.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F055DC263C2A7593126D2CB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F414DB32DE5A2503AFFF3A42 /* Pods_Roadtrip.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FDD09970255225C000A16B89 = {
 			isa = PBXGroup;
 			children = (
 				FDD0997B255225C000A16B89 /* Roadtrip */,
 				FDD0997A255225C000A16B89 /* Products */,
+				ADCF5E41B87847A8F0781DD9 /* Pods */,
+				F055DC263C2A7593126D2CB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDD0998D255225C200A16B89 /* Build configuration list for PBXNativeTarget "Roadtrip" */;
 			buildPhases = (
+				A3DEF8920B2057EFDA299228 /* [CP] Check Pods Manifest.lock */,
 				FDD09975255225C000A16B89 /* Sources */,
 				FDD09976255225C000A16B89 /* Frameworks */,
 				FDD09977255225C000A16B89 /* Resources */,
+				27DACA6D61C6D3A3D8DEA323 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27DACA6D61C6D3A3D8DEA323 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roadtrip/Pods-Roadtrip-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roadtrip/Pods-Roadtrip-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roadtrip/Pods-Roadtrip-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3DEF8920B2057EFDA299228 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Roadtrip-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FDD09975255225C000A16B89 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		FDD0998E255225C200A16B89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4357A17194B6E1F1CDC0951 /* Pods-Roadtrip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +371,7 @@
 		};
 		FDD0998F255225C200A16B89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 582671400E069773557C2B8B /* Pods-Roadtrip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
