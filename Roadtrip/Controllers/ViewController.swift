@@ -20,17 +20,17 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var daysField: UITextField!
     
-    @IBAction func stepperPressed(_ sender: UIStepper) {
-        daysField.text = String(Int(sender.value))
-    }
-    
     @IBAction func locationFieldTapped(_ sender: UITextField) {
         locationField.resignFirstResponder()
         let acController = GMSAutocompleteViewController()
         acController.delegate = self
         present(acController, animated: true, completion: nil)
     }
-
+    
+    @IBAction func stepperPressed(_ sender: UIStepper) {
+        daysField.text = String(Int(sender.value))
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -44,6 +44,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         
         
         locationManager.delegate = self
+        locationField.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
@@ -88,7 +89,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
 
 //MARK: - CLLocationManager Delegate
 
-
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location: CLLocationCoordinate2D = manager.location?.coordinate else {return}
@@ -106,7 +106,6 @@ extension ViewController: CLLocationManagerDelegate {
 
 //MARK: - GMSAutocomplete Delegate
 
-
 extension ViewController: GMSAutocompleteViewControllerDelegate {
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
     // Get the place name from 'GMSAutocompleteViewController'
@@ -123,5 +122,36 @@ func wasCancelled(_ viewController: GMSAutocompleteViewController) {
     // Dismiss when the user canceled the action
     dismiss(animated: true, completion: nil)
   }
+}
+
+//MARK: - UITextField Delegate
+
+extension ViewController: UITextFieldDelegate {
+    @IBAction func enterPressed(_ sender: UIButton) {
+        locationField.endEditing(true)
+        print(locationField.text!)
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "Please enter your location"
+            return false
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+
+        if identifier == "resultsSegue" {
+            if locationField.text == "" {
+                locationField.attributedPlaceholder = NSAttributedString(string: "Please enter your location", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                return false
+            }
+        }
+
+        return true
+    }
+
 }
 
